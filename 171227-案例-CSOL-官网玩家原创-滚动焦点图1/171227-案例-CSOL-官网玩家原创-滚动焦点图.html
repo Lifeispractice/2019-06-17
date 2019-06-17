@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="Generator" content="EditPlus?">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>171227-CSOL 官网玩家原创 滚动焦点图</title>
+<link rel="stylesheet" type="text/css" href="js/basic.css">
+<script src="js/jquery-1.7.2.min.js"></script>
+</head>
+<style type="text/css">
+.original{width:980px;margin:0 auto;overflow: hidden;padding-top: 20px;}
+.original .tit{height: 40px;line-height: 40px;font-size: 20px;width: 100%;margin: 0 auto;color: #f00;}
+.original .tit p{width:200px;float:left;font-size: 18px;font-weight: bold;color: #C9C9C9;}
+.original .tit a{display:block;float:right;color: #C9C9C9;font-size: 14px;}
+.original .original-box{width:100%;padding: 15px 0;background-color: #212327;position: relative;}
+.original .marquee {width: 960px;height: 136px;overflow: hidden;margin: 0 auto;position: relative;z-index: 10;}
+.original .marquee ul li{float:left;width:230px;padding:5px;}
+.original .marquee ul li a{display:block;overflow: hidden;width: 230px;height: 130px;position: relative;}
+.original .marquee ul li a{-webkit-transition:all .2s;-moz-transition:all .2s;-ms-transition:all .2s;-o-transition:all .2s;transition:all .2s;}
+.original .marquee ul li a i{position: absolute;top: 0;right: 0;}
+.original .marquee ul li a:hover{box-shadow:0px 0px 0px 1px #999;}
+.original .control {height: 54px;position: absolute;top: 60px;left: 20px;width: 940px;z-index: 10;display:none;}
+.original .goL,.original .goR{font-size:0px;position: absolute;background: url(https://img1.tiancitycdn.com/project1/csol/event/2017/07/cs-map/btn-page.png) no-repeat center top;width: 14px;height: 54px;op:50%;margin-top:-27px;z-index:11;top:90px;}
+.original .goL{left:20px;background-position: 0px 0px;}
+.original .goR{right:20px;background-position: -15px 0px;}
+ </style>
+ <body>
+<!-- <script src="https://img1.tiancitycdn.com/project1/csol/event/2017/07/cs170720map/js/original.js"></script> -->
+<!-- <script src="https://img1.tiancitycdn.com/project1/csol/event/2017/07/cs170720map/js/marquee.js" charset='utf-8'></script> -->
+<script src="js/original.js"></script>
+<script src="js/marquee.js" charset='utf-8'></script>
+<script type="text/javascript">
+$(function(){
+	var rd=Math.random();
+	//一次横向滚动一个
+	$('.marquee').kxbdSuperMarquee({
+//		isAuto:false,[是否启动自动轮播]
+		distance:240,
+		time:3,
+		btnGo:{left:'.goR',right:'.goL'},
+		direction:'left'
+	});
+	$(".original .original-box").hover(function(){
+		$(".original .control").fadeIn();
+	},function(){
+		$(".original .control").fadeOut();
+	})
+});
+</script>
+ </body>
+</html>
