@@ -1,47 +1,47 @@
 
 /**
  * @options
- *		distance:200,//Ò»´Î¹ö¶¯µÄ¾àÀë
- *		duration:20,//»º¶¯Ğ§¹û£¬µ¥´ÎÒÆ¶¯Ê±¼ä£¬Ô½Ğ¡ËÙ¶ÈÔ½¿ì£¬Îª0Ê±ÎŞ»º¶¯Ğ§¹û
- *		time:5,//Í£¶ÙÊ±¼ä£¬µ¥Î»ÎªÃë
- *		direction: 'left',//¹ö¶¯·½Ïò£¬'left','right','up','down'
- *		scrollAmount:1,//²½³¤
- *		scrollDelay:20//Ê±³¤£¬µ¥Î»ÎªºÁÃë
- *		isEqual:true,//ËùÓĞ¹ö¶¯µÄÔªËØ³¤¿íÊÇ·ñÏàµÈ,true,false
- *		loop: 0,//Ñ­»·¹ö¶¯´ÎÊı£¬0Ê±ÎŞÏŞ
- *		btnGo:{left:'#goL',right:'#goR'},//¿ØÖÆ·½ÏòµÄ°´Å¥ID£¬ÓĞËÄ¸öÊôĞÔleft,right,up,down·Ö±ğ¶ÔÓ¦ËÄ¸ö·½Ïò
- *		eventGo:'click',//Êó±êÊÂ¼ş
- *		controlBtn:{left:'#goL',right:'#goR'},//¿ØÖÆ¼ÓËÙ¹ö¶¯µÄ°´Å¥ID£¬ÓĞËÄ¸öÊôĞÔleft,right,up,down·Ö±ğ¶ÔÓ¦ËÄ¸ö·½Ïò
- *		newAmount:4,//¼ÓËÙ¹ö¶¯µÄ²½³¤
- *		eventA:'mouseenter',//Êó±êÊÂ¼ş£¬¼ÓËÙ
- *		eventB:'mouseleave',//Êó±êÊÂ¼ş£¬Ô­ËÙ
- *		navId:'#marqueeNav', //µ¼º½ÈİÆ÷ID£¬µ¼º½DOM:<ul><li>1</li><li>2</li><ul>,µ¼º½CSS:.navOn
- *		eventNav:'click' //µ¼º½ÊÂ¼ş
+ *		distance:200,//ä¸€æ¬¡æ»šåŠ¨çš„è·ç¦»
+ *		duration:20,//ç¼“åŠ¨æ•ˆæœï¼Œå•æ¬¡ç§»åŠ¨æ—¶é—´ï¼Œè¶Šå°é€Ÿåº¦è¶Šå¿«ï¼Œä¸º0æ—¶æ— ç¼“åŠ¨æ•ˆæœ
+ *		time:5,//åœé¡¿æ—¶é—´ï¼Œå•ä½ä¸ºç§’
+ *		direction: 'left',//æ»šåŠ¨æ–¹å‘ï¼Œ'left','right','up','down'
+ *		scrollAmount:1,//æ­¥é•¿
+ *		scrollDelay:20//æ—¶é•¿ï¼Œå•ä½ä¸ºæ¯«ç§’
+ *		isEqual:true,//æ‰€æœ‰æ»šåŠ¨çš„å…ƒç´ é•¿å®½æ˜¯å¦ç›¸ç­‰,true,false
+ *		loop: 0,//å¾ªç¯æ»šåŠ¨æ¬¡æ•°ï¼Œ0æ—¶æ— é™
+ *		btnGo:{left:'#goL',right:'#goR'},//æ§åˆ¶æ–¹å‘çš„æŒ‰é’®IDï¼Œæœ‰å››ä¸ªå±æ€§left,right,up,downåˆ†åˆ«å¯¹åº”å››ä¸ªæ–¹å‘
+ *		eventGo:'click',//é¼ æ ‡äº‹ä»¶
+ *		controlBtn:{left:'#goL',right:'#goR'},//æ§åˆ¶åŠ é€Ÿæ»šåŠ¨çš„æŒ‰é’®IDï¼Œæœ‰å››ä¸ªå±æ€§left,right,up,downåˆ†åˆ«å¯¹åº”å››ä¸ªæ–¹å‘
+ *		newAmount:4,//åŠ é€Ÿæ»šåŠ¨çš„æ­¥é•¿
+ *		eventA:'mouseenter',//é¼ æ ‡äº‹ä»¶ï¼ŒåŠ é€Ÿ
+ *		eventB:'mouseleave',//é¼ æ ‡äº‹ä»¶ï¼ŒåŸé€Ÿ
+ *		navId:'#marqueeNav', //å¯¼èˆªå®¹å™¨IDï¼Œå¯¼èˆªDOM:<ul><li>1</li><li>2</li><ul>,å¯¼èˆªCSS:.navOn
+ *		eventNav:'click' //å¯¼èˆªäº‹ä»¶
  */
 (function($){
 	$.fn.kxbdSuperMarquee = function(options){
 		var opts = $.extend({},$.fn.kxbdSuperMarquee.defaults, options);
 		
 		return this.each(function(){
-			var $marquee = $(this);//¹ö¶¯ÔªËØÈİÆ÷
-			var _scrollObj = $marquee.get(0);//¹ö¶¯ÔªËØÈİÆ÷DOM
-			var scrollW = $marquee.width();//¹ö¶¯ÔªËØÈİÆ÷µÄ¿í¶È
-			var scrollH = $marquee.height();//¹ö¶¯ÔªËØÈİÆ÷µÄ¸ß¶È
-			var $element = $marquee.children(); //¹ö¶¯ÔªËØ
-			var $kids = $element.children();//¹ö¶¯×ÓÔªËØ
-			var scrollSize=0;//¹ö¶¯ÔªËØ³ß´ç
-			var _type = (opts.direction == 'left' || opts.direction == 'right') ? 1:0;//¹ö¶¯ÀàĞÍ£¬1×óÓÒ£¬0ÉÏÏÂ
+			var $marquee = $(this);//æ»šåŠ¨å…ƒç´ å®¹å™¨
+			var _scrollObj = $marquee.get(0);//æ»šåŠ¨å…ƒç´ å®¹å™¨DOM
+			var scrollW = $marquee.width();//æ»šåŠ¨å…ƒç´ å®¹å™¨çš„å®½åº¦
+			var scrollH = $marquee.height();//æ»šåŠ¨å…ƒç´ å®¹å™¨çš„é«˜åº¦
+			var $element = $marquee.children(); //æ»šåŠ¨å…ƒç´ 
+			var $kids = $element.children();//æ»šåŠ¨å­å…ƒç´ 
+			var scrollSize=0;//æ»šåŠ¨å…ƒç´ å°ºå¯¸
+			var _type = (opts.direction == 'left' || opts.direction == 'right') ? 1:0;//æ»šåŠ¨ç±»å‹ï¼Œ1å·¦å³ï¼Œ0ä¸Šä¸‹
 			var scrollId, rollId, isMove, marqueeId;
-			var t,b,c,d,e; //¹ö¶¯¶¯»­µÄ²ÎÊı,t:µ±Ç°Ê±¼ä£¬b:¿ªÊ¼µÄÎ»ÖÃ£¬c:¸Ä±äµÄÎ»ÖÃ£¬d:³ÖĞøµÄÊ±¼ä£¬e:½áÊøµÄÎ»ÖÃ
-			var _size, _len; //×ÓÔªËØµÄ³ß´çÓë¸öÊı
+			var t,b,c,d,e; //æ»šåŠ¨åŠ¨ç”»çš„å‚æ•°,t:å½“å‰æ—¶é—´ï¼Œb:å¼€å§‹çš„ä½ç½®ï¼Œc:æ”¹å˜çš„ä½ç½®ï¼Œd:æŒç»­çš„æ—¶é—´ï¼Œe:ç»“æŸçš„ä½ç½®
+			var _size, _len; //å­å…ƒç´ çš„å°ºå¯¸ä¸ä¸ªæ•°
 			var $nav,$navBtns;
 			var arrPos = []; 
-			var numView = 0; //µ±Ç°Ëù¿´×ÓÔªËØ
-			var numRoll=0; //ÂÖ»»µÄ´ÎÊı
-			var numMoved = 0;//ÒÑ¾­ÒÆ¶¯µÄ¾àÀë
-			//·ÀÖ¹¹ö¶¯×ÓÔªËØ±È¹ö¶¯ÔªËØ¿í¶øÈ¡²»µ½Êµ¼Ê¹ö¶¯×ÓÔªËØ¿í¶È
+			var numView = 0; //å½“å‰æ‰€çœ‹å­å…ƒç´ 
+			var numRoll=0; //è½®æ¢çš„æ¬¡æ•°
+			var numMoved = 0;//å·²ç»ç§»åŠ¨çš„è·ç¦»
+			//é˜²æ­¢æ»šåŠ¨å­å…ƒç´ æ¯”æ»šåŠ¨å…ƒç´ å®½è€Œå–ä¸åˆ°å®é™…æ»šåŠ¨å­å…ƒç´ å®½åº¦
 			$element.css(_type?'width':'height',10000);
-			//»ñÈ¡¹ö¶¯ÔªËØµÄ³ß´ç
+			//è·å–æ»šåŠ¨å…ƒç´ çš„å°ºå¯¸
 			var navHtml = '<ul>';
 			if (opts.isEqual) {
 				_size = $kids[_type?'outerWidth':'outerHeight']();
@@ -60,12 +60,12 @@
 			}
 			navHtml += '</ul>';
 			
-			//¹ö¶¯ÔªËØ×Ü³ß´çĞ¡ÓÚÈİÆ÷³ß´ç£¬²»¹ö¶¯
+			//æ»šåŠ¨å…ƒç´ æ€»å°ºå¯¸å°äºå®¹å™¨å°ºå¯¸ï¼Œä¸æ»šåŠ¨
 			if (scrollSize<(_type?scrollW:scrollH)) return; 
-			//¿ËÂ¡¹ö¶¯×ÓÔªËØ½«Æä²åÈëµ½¹ö¶¯ÔªËØºó£¬²¢Éè¶¨¹ö¶¯ÔªËØ¿í¶È
+			//å…‹éš†æ»šåŠ¨å­å…ƒç´ å°†å…¶æ’å…¥åˆ°æ»šåŠ¨å…ƒç´ åï¼Œå¹¶è®¾å®šæ»šåŠ¨å…ƒç´ å®½åº¦
 			$element.append($kids.clone()).css(_type?'width':'height',scrollSize*2);
 			
-			//ÂÖ»»µ¼º½
+			//è½®æ¢å¯¼èˆª
 			if (opts.navId) {
 				$nav = $(opts.navId).append(navHtml).hover( stop, start );
 				$navBtns = $('li', $nav);
@@ -82,7 +82,7 @@
 				$navBtns.eq(numView).addClass('navOn');
 			}
 			
-			//Éè¶¨³õÊ¼Î»ÖÃ
+			//è®¾å®šåˆå§‹ä½ç½®
 			if (opts.direction == 'right' || opts.direction == 'down') {
 				_scrollObj[_type?'scrollLeft':'scrollTop'] = scrollSize;
 			}else{
@@ -90,10 +90,10 @@
 			}
 			
 			if(opts.isMarquee){
-				//¹ö¶¯¿ªÊ¼
+				//æ»šåŠ¨å¼€å§‹
 				//marqueeId = setInterval(scrollFunc, opts.scrollDelay);
 				marqueeId = setTimeout(scrollFunc, opts.scrollDelay);
-				//Êó±ê»®¹ıÍ£Ö¹¹ö¶¯
+				//é¼ æ ‡åˆ’è¿‡åœæ­¢æ»šåŠ¨
 				$marquee.hover(
 					function(){
 						clearInterval(marqueeId);
@@ -105,7 +105,7 @@
 					}
 				);
 				
-				//¿ØÖÆ¼ÓËÙÔË¶¯
+				//æ§åˆ¶åŠ é€Ÿè¿åŠ¨
 				if(opts.controlBtn){
 					$.each(opts.controlBtn, function(i,val){
 						$(val).bind(opts.eventA,function(){
@@ -119,14 +119,14 @@
 				}
 			}else{
 				if(opts.isAuto){
-					//ÂÖ»»¿ªÊ¼
+					//è½®æ¢å¼€å§‹
 					start();
 					
-					//Êó±ê»®¹ıÍ£Ö¹ÂÖ»»
+					//é¼ æ ‡åˆ’è¿‡åœæ­¢è½®æ¢
 					$marquee.hover( stop, start );
 				}
 			
-				//¿ØÖÆÇ°ºó×ß
+				//æ§åˆ¶å‰åèµ°
 				if(opts.btnGo){
 					$.each(opts.btnGo, function(i,val){
 						$(val).bind(opts.eventGo,function(){
@@ -201,7 +201,7 @@
 				var _dir = (opts.direction == 'left' || opts.direction == 'right') ? 'scrollLeft':'scrollTop';
 				var _neg = opts.direction == 'left' || opts.direction == 'up'?1:-1;
 				numRoll = numRoll +_neg;
-				//µÃµ½µ±Ç°Ëù¿´ÔªËØĞòºÅ²¢¸Ä±äµ¼º½CSS
+				//å¾—åˆ°å½“å‰æ‰€çœ‹å…ƒç´ åºå·å¹¶æ”¹å˜å¯¼èˆªCSS
 				if(pPos == undefined&&opts.navId){
 					$navBtns.eq(numView).removeClass('navOn');
 					numView +=_neg;
@@ -257,20 +257,20 @@
 		});
 	};
 	$.fn.kxbdSuperMarquee.defaults = {
-		isMarquee:false,//ÊÇ·ñÎªMarquee
-		isEqual:true,//ËùÓĞ¹ö¶¯µÄÔªËØ³¤¿íÊÇ·ñÏàµÈ,true,false
-		loop: 0,//Ñ­»·¹ö¶¯´ÎÊı£¬0Ê±ÎŞÏŞ
-		newAmount:3,//¼ÓËÙ¹ö¶¯µÄ²½³¤
-		eventA:'mousedown',//Êó±êÊÂ¼ş£¬¼ÓËÙ
-		eventB:'mouseup',//Êó±êÊÂ¼ş£¬Ô­ËÙ
-		isAuto:true,//ÊÇ·ñ×Ô¶¯ÂÖ»»
-		time:5,//Í£¶ÙÊ±¼ä£¬µ¥Î»ÎªÃë
-		duration:50,//»º¶¯Ğ§¹û£¬µ¥´ÎÒÆ¶¯Ê±¼ä£¬Ô½Ğ¡ËÙ¶ÈÔ½¿ì£¬Îª0Ê±ÎŞ»º¶¯Ğ§¹û
-		eventGo:'click', //Êó±êÊÂ¼ş£¬ÏòÇ°Ïòºó×ß
-		direction: 'left',//¹ö¶¯·½Ïò£¬'left','right','up','down'
-		scrollAmount:1,//²½³¤
-		scrollDelay:10,//Ê±³¤
-		eventNav:'click'//µ¼º½ÊÂ¼ş
+		isMarquee:false,//æ˜¯å¦ä¸ºMarquee
+		isEqual:true,//æ‰€æœ‰æ»šåŠ¨çš„å…ƒç´ é•¿å®½æ˜¯å¦ç›¸ç­‰,true,false
+		loop: 0,//å¾ªç¯æ»šåŠ¨æ¬¡æ•°ï¼Œ0æ—¶æ— é™
+		newAmount:3,//åŠ é€Ÿæ»šåŠ¨çš„æ­¥é•¿
+		eventA:'mousedown',//é¼ æ ‡äº‹ä»¶ï¼ŒåŠ é€Ÿ
+		eventB:'mouseup',//é¼ æ ‡äº‹ä»¶ï¼ŒåŸé€Ÿ
+		isAuto:true,//æ˜¯å¦è‡ªåŠ¨è½®æ¢
+		time:5,//åœé¡¿æ—¶é—´ï¼Œå•ä½ä¸ºç§’
+		duration:50,//ç¼“åŠ¨æ•ˆæœï¼Œå•æ¬¡ç§»åŠ¨æ—¶é—´ï¼Œè¶Šå°é€Ÿåº¦è¶Šå¿«ï¼Œä¸º0æ—¶æ— ç¼“åŠ¨æ•ˆæœ
+		eventGo:'click', //é¼ æ ‡äº‹ä»¶ï¼Œå‘å‰å‘åèµ°
+		direction: 'left',//æ»šåŠ¨æ–¹å‘ï¼Œ'left','right','up','down'
+		scrollAmount:1,//æ­¥é•¿
+		scrollDelay:10,//æ—¶é•¿
+		eventNav:'click'//å¯¼èˆªäº‹ä»¶
 	};
 	
 	$.fn.kxbdSuperMarquee.setDefaults = function(settings) {

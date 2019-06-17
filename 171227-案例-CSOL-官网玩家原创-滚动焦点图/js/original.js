@@ -1,8 +1,8 @@
 document.writeln(
 '  <div class="original animate_four animate_hidden" >'+
 '	<div class="tit">'+
-'		<p>Íæ¼ÒÔ­´´</p>'+
-'		<a href="https://csol.tiancity.com/homepage/event/2017/07/cs170720map/" target="_blank">¸ü¶à&gt;&gt;</a>'+
+'		<p>ç©å®¶åŸåˆ›</p>'+
+'		<a href="https://csol.tiancity.com/homepage/event/2017/07/cs170720map/" target="_blank">æ›´å¤š&gt;&gt;</a>'+
 '	</div>'+
 '	<div class="original-box">'+
 '		<div class="marquee">'+
@@ -34,8 +34,8 @@ document.writeln(
 '			<li><a href="http://csolbbs.tiancity.com/forum.php?mod=viewthread&tid=1949" target="_blank" ><img src="https://img1.tiancitycdn.com/project1/csol/event/2017/07/cs-map/170904/4.jpg" /></a></li>'+
 '        </ul>'+
 '		</div>'+
-'			<a href="javascript:void(0);" class="goL" >×óÒÆÒ»´Î</a> '+
-'			<a href="javascript:void(0);" class="goR">ÓÒÒÆÒ»´Î</a>'+
+'			<a href="javascript:void(0);" class="goL" >å·¦ç§»ä¸€æ¬¡</a> '+
+'			<a href="javascript:void(0);" class="goR">å³ç§»ä¸€æ¬¡</a>'+
 '	</div>'+
 '</div>'
 );
